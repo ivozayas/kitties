@@ -1,0 +1,98 @@
+body {
+    background: linear-gradient(180deg, rgb(255, 249, 232) 0%, rgb(252, 199, 255) 100%);
+    color:rgb(154, 54, 181);
+    font-family:'Courier New', Courier, monospace;
+    min-height: 100vh;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-bottom: 70px;
+}
+
+img {
+    width: 100%;
+    box-shadow: 3px 5px 15px  rgb(106, 67, 130);
+    border-radius: 3px;
+}
+
+.catContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.catContainer div {
+    position: relative;
+    width: 200px;
+    margin: 20px;
+}
+
+.catContainer div:hover {
+    width: 250px;
+}
+
+.fav-btn {
+    font-size: 30px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border: none;
+    background-color: transparent;
+    border-radius: 50%;
+    color: rgb(154, 54, 181)
+}
+
+.fav-btn::before,
+.fav-cat-btn::before {
+    content: "\2605";
+}
+
+.fav-btn:hover {
+    color: yellow;
+}
+
+.fav-cat-btn{
+    font-size: 30px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border: none;
+    background-color: transparent;
+    border-radius: 50%;
+    color: yellow;
+}
+
+.fav-cat-btn:hover {
+    color: rgb(154, 54, 181);
+}
+
+#newCat {
+    margin: 10px;
+    width: 160px;
+    height: 50px;
+    border-radius: 25px;
+    border: none;
+    box-shadow: 3px 5px 15px  rgb(125, 83, 151);
+    background-color: rgb(255, 249, 232);
+    font-family:'Courier New', Courier, monospace;
+    color:rgb(154, 54, 181);
+    font-size: 18px;
+    padding: 10px;
+    font-weight: 600;
+}
+
+#newCat:hover {
+    box-shadow: 2px 2px 8px  rgb(125, 83, 151);
+    background-color: rgb(255, 255, 82);
+}
+
+@media (max-width: 750px) {
+    .catContainer {
+      flex-direction: column;
+    }
+}

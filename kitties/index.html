@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title> KITTIES</title>
+</head>
+<body>
+    <section id="random-kitties">
+        <h2>RANDOM KITTIES</h2>
+
+        <span id="error"></span>
+
+        <div class="catContainer">
+            <div>
+                <img id="gatito1" alt="Foto gatito aleatorio">
+                <button id='btn1' class="fav-btn"></button>
+            </div>
+            <div>
+                <img id="gatito2" alt="Foto gatito aleatorio">
+                <button id='btn2' class="fav-btn"></button>
+            </div>            <div>
+                <img id="gatito3" alt="Foto gatito aleatorio">
+                <button id='btn3' class="fav-btn"></button>
+            </div>
+        </div>
+
+        <button id="newCat" onclick="showRandomCat()">new kitties</button>
+    </section>
+
+    <section id="fav-kitties">
+        <h2 id="fav-title">FAV KITTIES</h2>
+
+        <!-- <div class="catContainer">
+            <div>
+                <img  alt="Foto gatito aleatorio">
+                <button class="fav-btn"></button>
+            </div>
+        </div> -->
+    </section>
+
+    <section id="upload-kitties">
+
+    </section>
+
+    <script src="./index.js"></script>
+</body>
+</html>
