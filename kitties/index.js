@@ -14,7 +14,7 @@ const spanError = document.getElementById('error')
 const favSection = document.getElementById('fav-kitties')
 const favTitle =  document.getElementById('fav-title')
 
-async function showRandomCat() {
+async function showRandomCat(addedFavCatID /* quiero hacer que se actualice sólo el gato que agrego a favoritos, entonces cuando agrego uno a favoritos, llamo a showRandomCat desde addFavCat, pasandole como parametro el id del gato faveado, despus no se que mas hacer despues veo. Tendria que filtrar data para actualizar sólo la imagen que coincida con addedFavCatID */) {
     const res = await fetch(API_URL_RANDOM)
     
     if (res.status !== 200 /* res.status = HTTP Status Code */) {
@@ -49,12 +49,12 @@ async function showFavCat() {
         let catContainer = document.createElement('div')
         catContainer.classList.add('catContainer')
 
-        let counter = 0
+        let containerCounter = 0
 
         data.forEach(cat => {
-            catContainer = createCatContainer(catContainer, counter)
+            catContainer = createCatContainer(catContainer, containerCounter)
 
-            counter++
+            containerCounter++
 
             const div = document.createElement('div')
 
