@@ -35,12 +35,43 @@
 // Application-based authentication
 // User-based authentication
 
+// _____________________________________________
+
+// HEADERS
+
+// Permiten enviar información adicional en una solicitud HTTP o su respuesta, ya sea acerca del navegador del vliente, de la página solicitada, del servidor, etc. Por ejemplo: en el caso de enviar una carta, podría decirse que el body es el contenido de la carta en sí, mientras que el header serían las especificaciones que necesita la empresa de correos para envíarla a dónde corresponda.
+
+// - Content-Type: su función es que frontend y backend estén de acuerdo en qué tipo de contenido van a intercambiar. Si envíamos un Content-Type que el backend no puede soportar, va a saltar un error. 
+
+// MIME Types (Multipurpose Internet Mail Extensions)
+// Son la manera standard de mandar contenido a través de la red. Los tipos MIME especifican tipos de datos como por ejemplo texto, imagen, audio, etc. que los archivos contienen. Se debe utilizar el sufijo correcto para este tipo de archivo.
+// MIME adjunta a cada archivo un archivo de cabecera donde se indica el tipo y el subtipo del contenido de los datos del archivo. Gracias a esta información tanto el servidor como el navegador pueden manejar y presentar los archivos correctamente. Éstas no son las únicas ventajas: el usuario puede combinar archivos de distintos tipos de datos; se pueden incluir, por ejemplo, archivos de imágenes y de sonido en un documento HTML.
+// Para que MIME funcione correctamente, se debe utilizar la designación de nombres correcta.
+
+// FormData
+// Proporciona una manera sencilla de construir un conjunto de parejas clave/valor que representan los campos de un formulario y sus valores. Utiliza el formato "multipart/form-data"
+
+const form = new FormData()
+
+form.set('llave1', 'valor1')
+form.get('llave1') // valor1
+form.append('llave2', 'valor2')
+form.append('llave2', 'valor3')
+form.getAll('llave2') // [ valor2, valor3 ]
+
 // ___________________________________________________
 
-// Otras propiedades de fetch
+// Dentro de Fetch
+// Por dentro, Fetch utiliza distintos prototipos (Request, Headers, Response, etc) para trabajar. Lo único que hace es consumir estos prototipos, que son los que realmente contienen el código de Fetch.
+
+// Otras propiedades de Fetch
 
 // Mode
 // Muchas veces el backend quiere limitar con quién comparte determinada información. Dependiendo de quién haga la petición, va a bloquearla o permitirla. Mode: cors (para limitar quién puede hacer peticiones y a qué información puede acceder), no-cors (valor por defecto, no hay ninguna restricción en cuanto a quién puede realizar solicitudes ni a que información acceda), same-origin (el backend sólo permitirá que el frontend al que esta sirviendo pueda hacer solicitudes a la API).
 
 // Caché
-// La capacidad de recordar la información traída en una solicitud anterior. Podemos guardar los datos que nos haya traído la API en el navegador/en nuestra aplicación, y por ejemplo, si en un futuro tenemos que acceder nuevamente a esa información, no necesitamos hacer una nueva solicitud. Entonces, desde el frontend podemos especificar si siempre queremos cache o si nunca queremos caché y siempre hacer una nueva solicitud. Otras posibilidades: 
+// La capacidad de recordar la información traída en una solicitud anterior. Podemos guardar los datos que nos haya traído la API en el navegador/en nuestra aplicación, y por ejemplo, si en un futuro tenemos que acceder nuevamente a esa información, no necesitamos hacer una nueva solicitud. Entonces, desde el frontend podemos especificar si siempre queremos cache o si nunca queremos caché y siempre hacer una nueva solicitud. Hay otras posibilidades pero no es recomendable su uso excepto en casos muy específicos.
+
+// Redirect
+// Podemos decidir que hacer cuando nos encontramos con un Status Code 3XX: follow (seguir la nueva ruta), error (bloquear la solicitud) y manuel (para casos nmuy específicos, se revisan manualmente los redirects; normalmente, el único caso de uso práctico es para los Service Workers que no sé que es).
+
