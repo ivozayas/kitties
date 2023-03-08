@@ -2,6 +2,7 @@ const API_KEY = 'live_XTZtxCEP8EjJwFLUYJ1njrWaahD3aElXsBBEvrVLfDkXbf4sA2xwZY98dq
 const API_URL_RANDOM = "https://api.thecatapi.com/v1/images/search?limit=3&api_key=" + API_KEY
 const API_URL_FAV = "https://api.thecatapi.com/v1/favourites?api_key=" + API_KEY
 const API_URL_FAV_DELETE = (id) => "https://api.thecatapi.com/v1/favourites/" + id + "?api_key=" + API_KEY
+const API_URL_UPLOAD = 'https://api.thecatapi.com/v1/images/upload'
 
 const changeButton = document.getElementById("newCat")
 const img1 = document.getElementById("gatito1")
@@ -14,7 +15,7 @@ const spanError = document.getElementById('error')
 const favSection = document.getElementById('fav-kitties')
 const favTitle =  document.getElementById('fav-title')
 
-async function showRandomCat(addedFavCatID /* quiero hacer que se actualice sólo el gato que agrego a favoritos, entonces cuando agrego uno a favoritos, llamo a showRandomCat desde addFavCat, pasandole como parametro el id del gato faveado, despus no se que mas hacer despues veo. Tendria que filtrar data para actualizar sólo la imagen que coincida con addedFavCatID */) {
+async function showRandomCat() {
     const res = await fetch(API_URL_RANDOM)
     
     if (res.status !== 200 /* res.status = HTTP Status Code */) {
@@ -120,8 +121,16 @@ async function removeFavCat(catID) {
     console.log(catID);
 }
 
-async function postCat() {
-    
+async function uploadCat() {
+    const res = await fetch(API_URL_UPLOAD, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            image_id: catID
+        }),
+    })
 }
 
 function showError(status){
