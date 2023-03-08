@@ -34,3 +34,13 @@
 
 // Application-based authentication
 // User-based authentication
+
+// ___________________________________________________
+
+// Otras propiedades de fetch
+
+// Mode
+// Muchas veces el backend quiere limitar con quién comparte determinada información. Dependiendo de quién haga la petición, va a bloquearla o permitirla. Mode: cors (para limitar quién puede hacer peticiones y a qué información puede acceder), no-cors (valor por defecto, no hay ninguna restricción en cuanto a quién puede realizar solicitudes ni a que información acceda), same-origin (el backend sólo permitirá que el frontend al que esta sirviendo pueda hacer solicitudes a la API).
+
+// Caché
+// La capacidad de recordar la información traída en una solicitud anterior. Podemos guardar los datos que nos haya traído la API en el navegador/en nuestra aplicación, y por ejemplo, si en un futuro tenemos que acceder nuevamente a esa información, no necesitamos hacer una nueva solicitud. Entonces, desde el frontend podemos especificar si siempre queremos cache o si nunca queremos caché y siempre hacer una nueva solicitud. Otras posibilidades: 
