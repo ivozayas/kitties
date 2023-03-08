@@ -122,15 +122,29 @@ async function removeFavCat(catID) {
 }
 
 async function uploadCat() {
+    const form = document.getElementById('uploading-form')
+    const formData = new FormData(form) // pasándole el formulario como argumento, FormData recoje todos los valores de los inputs y los va a agregar. El atributo name del input pasará a ser el nombre de la llave donde va a estar guardado el archivo.
+
+    console.log(formData.get('file'))
+
     const res = await fetch(API_URL_UPLOAD, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
+            'X-API-KEY': API_KEY,
         },
-        body: JSON.stringify({
-            image_id: catID
-        }),
+        body: formData,
     })
+
+    if (res.status !== 201) {
+        showError(res.status)
+    } else {
+        const data = await res.json()
+        console.log('Foto Subida')
+        console.log({data})
+        console.log(data.url)
+
+        addFavCat(data.id)
+    }
 }
 
 function showError(status){
