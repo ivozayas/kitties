@@ -64,6 +64,7 @@ async function showFavCat() {
             
             const btn = document.createElement('button')
             btn.classList.add('fav-cat-btn')
+            btn.title = "remove from fav"
             btn.onclick = () => removeFavCat(cat.id)
 
             div.appendChild(img)
